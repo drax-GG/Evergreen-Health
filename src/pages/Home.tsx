@@ -26,7 +26,7 @@ const Home = () => {
             className="max-w-2xl"
           >
             <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-6 border border-emerald-500/30">
-              Welcome to Evergreen Health
+              Welcome to Evergreen Health, Akola
             </span>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1]">
               Leading the Way in <span className="text-emerald-400">Excellence</span>
@@ -134,8 +134,12 @@ const Home = () => {
               </Link>
               <div className="flex flex-col text-left">
                 <span className="text-emerald-100 text-sm font-medium">Emergency Contact</span>
-                <span className="text-white text-2xl font-bold">+1 (555) 999-0000</span>
+                <span className="text-white text-2xl font-bold">9999999999</span>
               </div>
+            </div>
+            
+            <div className="mt-12 text-emerald-100/60 text-sm">
+              <p>📍 Gaurakshan Road, Akola, Maharashtra 444001</p>
             </div>
           </div>
         </div>

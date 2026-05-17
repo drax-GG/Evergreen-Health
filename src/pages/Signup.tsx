@@ -67,7 +67,7 @@ const Signup = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="block w-full pl-11 pr-4 py-3 bg-emerald-50/50 border border-emerald-100 rounded-xl focus:ring-2 focus:ring-emerald-500 transition-all text-gray-900"
-                  placeholder="John Doe"
+                  placeholder="Rahul Deshmukh"
                 />
               </div>
             </div>

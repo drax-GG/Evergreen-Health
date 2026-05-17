@@ -16,7 +16,7 @@ const Footer = () => {
               <span className="text-2xl font-bold text-white tracking-tight">Evergreen Health</span>
             </Link>
             <p className="text-emerald-200/70 text-sm leading-relaxed">
-              Providing world-class healthcare with a human touch. Our mission is to enhance the health and well-being of our community.
+              Serving the Akola community with excellence in healthcare. Evergreen Health is dedicated to providing compassionate medical services with advanced technology.
             </p>
             <div className="flex space-x-4">
               {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
@@ -59,11 +59,11 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-sm">
                 <MapPin className="text-emerald-500 shrink-0 mt-1" size={18} />
-                <span className="text-emerald-200/70">123 Health Ave, Medical District, NY 10001</span>
+                <span className="text-emerald-200/70">Gaurakshan Road, Akola, Maharashtra 444001</span>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <Phone className="text-emerald-500 shrink-0" size={18} />
-                <span className="text-emerald-200/70">+1 (555) 000-1234</span>
+                <span className="text-emerald-200/70">9999999999</span>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <Mail className="text-emerald-500 shrink-0" size={18} />
