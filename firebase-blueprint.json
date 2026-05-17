@@ -1,0 +1,93 @@
+{
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["patient", "admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "name", "role", "createdAt"]
+    },
+    "doctors": {
+      "title": "Doctor",
+      "description": "Doctor profile and specialty",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "specialty": { "type": "string" },
+        "availability": { "type": "string" },
+        "bio": { "type": "string" },
+        "image": { "type": "string" },
+        "rating": { "type": "number" },
+        "departmentId": { "type": "string" }
+      },
+      "required": ["name", "specialty", "departmentId"]
+    },
+    "appointments": {
+      "title": "Appointment",
+      "description": "Patient appointment booking",
+      "type": "object",
+      "properties": {
+        "patientId": { "type": "string" },
+        "doctorId": { "type": "string" },
+        "doctorName": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "completed", "cancelled"] },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["patientId", "doctorId", "date", "time", "status", "createdAt"]
+    },
+    "reports": {
+      "title": "Report",
+      "description": "Medical reports for patients",
+      "type": "object",
+      "properties": {
+        "patientId": { "type": "string" },
+        "title": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "uploadedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["patientId", "title", "fileUrl", "uploadedAt"]
+    },
+    "departments": {
+      "title": "Department",
+      "description": "Hospital departments",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "iconName": { "type": "string" }
+      },
+      "required": ["name", "description", "iconName"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "users",
+      "description": "Individual user documents"
+    },
+    "/doctors/{doctorId}": {
+      "schema": "doctors",
+      "description": "Doctor profiles"
+    },
+    "/appointments/{appointmentId}": {
+      "schema": "appointments",
+      "description": "Appointment bookings"
+    },
+    "/reports/{reportId}": {
+      "schema": "reports",
+      "description": "Patient medical reports"
+    },
+    "/departments/{departmentId}": {
+      "schema": "departments",
+      "description": "Hospital departments"
+    }
+  }
+}

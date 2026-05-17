@@ -1,0 +1,6 @@
+{
+  "name": "Evergreen Health",
+  "description": "A modern, full-stack hospital management system with patient dashboard, doctor booking, and admin oversight.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
