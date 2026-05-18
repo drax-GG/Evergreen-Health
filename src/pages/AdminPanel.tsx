@@ -24,12 +24,17 @@ const AdminPanel = () => {
     const qAppts = query(collection(db, 'appointments'), orderBy('createdAt', 'desc'));
     const unsubAppts = onSnapshot(qAppts, (snap) => {
       setAppointments(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    }, (error) => {
+      console.error('Admin appointments error:', error);
+      toast.error('Admin: Failed to load appointments');
     });
 
     // Listen for all doctors
     const qDocs = query(collection(db, 'doctors'));
     const unsubDocs = onSnapshot(qDocs, (snap) => {
       setDoctors(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    }, (error) => {
+      console.error('Admin doctors error:', error);
     });
 
     // Listen for all patients (users with role 'patient')
@@ -37,6 +42,10 @@ const AdminPanel = () => {
     const unsubPatients = onSnapshot(qPatients, (snap) => {
       const allUsers = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setPatients(allUsers.filter((u: any) => u.role === 'patient'));
+      setLoading(false);
+    }, (error) => {
+      console.error('Admin patients error:', error);
+      toast.error('Admin: Failed to load users');
       setLoading(false);
     });
 

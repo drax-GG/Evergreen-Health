@@ -27,6 +27,9 @@ const Dashboard = () => {
     
     const unsubscribeAppts = onSnapshot(qAppts, (snap) => {
       setAppointments(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+    }, (error) => {
+      console.error('Appointments snapshot error:', error);
+      toast.error('Failed to load appointments: ' + error.message);
     });
 
     // Listen for reports
@@ -38,6 +41,10 @@ const Dashboard = () => {
     
     const unsubscribeReports = onSnapshot(qReports, (snap) => {
       setReports(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+      setLoading(false);
+    }, (error) => {
+      console.error('Reports snapshot error:', error);
+      toast.error('Failed to load reports: ' + error.message);
       setLoading(false);
     });
 
