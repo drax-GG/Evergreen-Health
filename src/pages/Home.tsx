@@ -2,46 +2,76 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Activity, Users, Calendar, Award, Shield, Heart, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import heroBg from '../assets/images/hospital_hero_bg_1779024445034.png';
 
 const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center">
+      <section className="relative min-h-[95vh] flex items-center">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/src/assets/images/hospital_hero_bg_1779024445034.png" 
+            src={heroBg} 
             alt="Hospital Hero" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-emerald-900/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-emerald-950/95 via-emerald-950/70 to-emerald-900/30"></div>
+          
+          {/* Accent lighting */}
+          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-emerald-400/10 rounded-full blur-[120px]"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20">
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="max-w-3xl"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold uppercase tracking-wider mb-6 border border-emerald-500/30">
-              Welcome to Evergreen Health, Akola
-            </span>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1]">
-              Leading the Way in <span className="text-emerald-400">Excellence</span>
-            </h1>
-            <p className="text-lg md:text-xl text-emerald-50/80 mb-8 leading-relaxed">
-              Experience the future of healthcare with our world-class medical team and state-of-the-art facilities. Your health is our priority.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <Link to="/booking" className="w-full sm:w-auto px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-semibold transition-all transform hover:scale-105 shadow-xl shadow-emerald-900/20 flex items-center justify-center">
-                Book Appointment <ArrowRight className="ml-2 w-5 h-5" />
+            <motion.span 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-[0.2em] mb-8 border border-emerald-500/20 backdrop-blur-md"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Evergreen Health Excellence</span>
+            </motion.span>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="text-6xl md:text-8xl font-bold text-white mb-8 leading-[0.95] tracking-tight"
+            >
+              World Class <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-200 uppercase text-5xl md:text-7xl block mt-4">Care for Everyone</span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-xl md:text-2xl text-emerald-50/70 mb-10 leading-relaxed font-light max-w-xl"
+            >
+              Experience a new standard of healthcare with advanced technology and compassionate medical experts.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6"
+            >
+              <Link to="/booking" className="px-10 py-5 bg-emerald-500 hover:bg-emerald-400 text-emerald-950 rounded-2xl font-bold transition-all transform hover:scale-105 shadow-2xl shadow-emerald-500/20 flex items-center justify-center text-lg">
+                Book Appointment <ArrowRight className="ml-2 w-6 h-6" />
               </Link>
-              <Link to="/doctors" className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-sm rounded-xl font-semibold transition-all text-center">
-                Meet Our Doctors
+              <Link to="/doctors" className="px-10 py-5 bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-md rounded-2xl font-bold transition-all text-center text-lg">
+                Meet Our Experts
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>

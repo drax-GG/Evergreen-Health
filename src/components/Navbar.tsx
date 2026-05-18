@@ -32,16 +32,19 @@ const Navbar = () => {
             <div className="bg-emerald-600 p-2 rounded-lg">
               <HeartPulse className="text-white w-6 h-6" />
             </div>
-            <span className="text-2xl font-bold text-emerald-900 tracking-tight">Evergreen<span className="text-emerald-600">Health</span></span>
+            <span className={`text-2xl font-bold tracking-tight transition-colors ${scrolled ? 'text-emerald-900' : 'text-white'}`}>Evergreen<span className="text-emerald-600">Health</span></span>
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-emerald-600 ${location.pathname === link.path ? 'text-emerald-600' : 'text-gray-600'}`}
+                className={`text-sm font-medium transition-colors hover:text-emerald-400 ${
+                  location.pathname === link.path 
+                    ? 'text-emerald-400' 
+                    : scrolled ? 'text-gray-600' : 'text-emerald-50'
+                }`}
               >
                 {link.name}
               </Link>
@@ -49,7 +52,7 @@ const Navbar = () => {
             
             {user ? (
               <div className="flex items-center space-x-4">
-                <Link to="/dashboard" className="flex items-center space-x-1 text-gray-600 hover:text-emerald-600">
+                <Link to="/dashboard" className={`flex items-center space-x-1 transition-colors ${scrolled ? 'text-gray-600 hover:text-emerald-600' : 'text-emerald-50 hover:text-emerald-300'}`}>
                   <LayoutDashboard size={18} />
                   <span className="text-sm font-medium">Dashboard</span>
                 </Link>
@@ -69,7 +72,7 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="flex items-center space-x-4">
-                <Link to="/login" className="text-sm font-medium text-gray-600 hover:text-emerald-600">Login</Link>
+                <Link to="/login" className={`text-sm font-medium transition-colors ${scrolled ? 'text-gray-600 hover:text-emerald-600' : 'text-emerald-50 hover:text-emerald-300'}`}>Login</Link>
                 <Link to="/signup" className="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200">
                   Join Now
                 </Link>
@@ -77,9 +80,8 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600 p-2">
+            <button onClick={() => setIsOpen(!isOpen)} className={`p-2 transition-colors ${scrolled ? 'text-gray-600' : 'text-white'}`}>
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
